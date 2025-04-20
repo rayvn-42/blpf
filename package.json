@@ -1,0 +1,25 @@
+{
+  "name": "blpf",
+  "displayName": "BLPF",
+  "description": "Adds support for the BLPF programming language.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "blpf",
+      "aliases": ["BLPF", "blpf"],
+      "extensions": [".blpf"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "blpf",
+      "scopeName": "",
+      "path": "./syntaxes/blpf.tmLanguage.json"
+    }]
+  }
+}
