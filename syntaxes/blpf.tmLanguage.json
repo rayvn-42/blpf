@@ -7,14 +7,16 @@
 	  { "include": "#instructions" },
 	  { "include": "#comments" },
 	  { "include": "#numbers" },
-	  { "include": "#labels" }
+	  { "include": "#labels" },
+	  { "include": "#strings" },
+	  { "include": "#branchTargets" }
 	],
 	"repository": {
 	  "instructions": {
 		"patterns": [
 		  {
 			"name": "keyword.instruction.blpf",
-			"match": "\\b(STA|STX|STY|TAX|TAY|TXA|TYA|TXY|TYX|PHA|PHX|PHY|POA|POX|POY|ADD|SUB|MUL|DIV|MOD|CMP|BNE|JMP|BEQ|AND|OR|XOR|NOT|HLT|PRINT|STO|LDA)\\b"
+			"match": "\\b(STA|STX|STY|TAX|TAY|TXA|TYA|TXY|TYX|PHA|PHX|PHY|POA|POX|POY|ADD|SUB|MUL|DIV|MOD|CMP|BNE|JMP|BEQ|BGT|AND|OR|XOR|NOT|HLT|PRINT|READ|STO|LDA)\\b"
 		  }
 		]
 	  },
@@ -37,8 +39,28 @@
 	  "labels": {
 		"patterns": [
 		  {
-			"name": "entity.name.label.blpf",
-			"match": "^\\s*[A-Za-z_][A-Za-z0-9_]*:"
+			"name": "entity.name.label.definition.blpf",
+			"match": "^\\s*([A-Za-z_][A-Za-z0-9_]*):"
+		  }
+		]
+	  },
+	  "strings": {
+		"patterns": [
+		  {
+			"name": "string.quoted.double.blpf",
+			"match": "\"([^\"\\\\]|\\\\.)*\""
+		  }
+		]
+	  },
+	  "branchTargets": {
+		"patterns": [
+		  {
+			"name": "entity.name.label.reference.blpf",
+			"match": "\\b(BEQ|BNE|BGT|JMP)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+			"captures": {
+			  "1": { "name": "keyword.control.flow.blpf" },
+			  "2": { "name": "entity.name.label.reference.blpf" }
+			}
 		  }
 		]
 	  }
