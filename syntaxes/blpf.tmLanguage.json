@@ -1,16 +1,24 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "BLPF Assembly",
+	"name": "BLPF",
 	"scopeName": "source.blpf",
+	"fileTypes": ["blpf"],
 	"patterns": [
-	  { "include": "#comment" },
-	  { "include": "#labels" },
 	  { "include": "#instructions" },
-	  { "include": "#registers" },
-	  { "include": "#numbers" }
+	  { "include": "#comments" },
+	  { "include": "#numbers" },
+	  { "include": "#labels" }
 	],
 	"repository": {
-	  "comment": {
+	  "instructions": {
+		"patterns": [
+		  {
+			"name": "keyword.instruction.blpf",
+			"match": "\\b(STA|PHA|TAX|PHX|TAY|PHY|ADD|POA|CMP|JMP|BNE|HLT|PRINT)\\b"
+		  }
+		]
+	  },
+	  "comments": {
 		"patterns": [
 		  {
 			"name": "comment.line.semicolon.blpf",
@@ -18,40 +26,22 @@
 		  }
 		]
 	  },
+	  "numbers": {
+		"patterns": [
+		  {
+			"name": "constant.numeric.blpf",
+			"match": "\\b\\d+\\b"
+		  }
+		]
+	  },
 	  "labels": {
 		"patterns": [
 		  {
 			"name": "entity.name.label.blpf",
-			"match": "^[A-Za-z_][A-Za-z0-9_]*:"
-		  }
-		]
-	  },
-	  "instructions": {
-		"patterns": [
-		  {
-			"name": "keyword.control.instruction.blpf",
-			"match": "\\b(STA|STX|STY|TAX|TAY|TXA|TYA|TXY|TYX|PHA|PHX|PHY|POA|POX|POY|ADD|SUB|MUL|DIV|MOD|CMP|BNE|BEQ|JMP|AND|OR|XOR|NOT|HLT|PRINT|STO|LDA)\\b"
-		  }
-		]
-	  },
-	  "registers": {
-		"patterns": [
-		  {
-			"name": "variable.language.register.blpf",
-			"match": "\\bA|X|Y\\b"
-		  }
-		]
-	  },
-	  "numbers": {
-		"patterns": [
-		  {
-			"name": "constant.numeric.decimal.blpf",
-			"match": "\\b\\d+\\b"
+			"match": "^\\s*[A-Za-z_][A-Za-z0-9_]*:"
 		  }
 		]
 	  }
-	},
-	"fileTypes": ["blpf"],
-	"uuid": "2f282ae0-f63e-11ee-a1bb-123456abcdef"
+	}
   }
   

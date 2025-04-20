@@ -10,16 +10,21 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
+  "languages": [
+    {
       "id": "blpf",
-      "aliases": ["BLPF", "blpf"],
+      "aliases": ["BLPF Assembly", "blpf"],
       "extensions": [".blpf"],
       "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
+    }
+  ],
+  "grammars": [
+    {
       "language": "blpf",
-      "scopeName": "",
+      "scopeName": "source.blpf",
       "path": "./syntaxes/blpf.tmLanguage.json"
-    }]
-  }
+    }
+  ]
+}
+
 }
