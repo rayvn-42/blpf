@@ -14,7 +14,7 @@
 		"patterns": [
 		  {
 			"name": "keyword.instruction.blpf",
-			"match": "\\b(STA|PHA|TAX|PHX|TAY|PHY|ADD|POA|CMP|JMP|BNE|HLT|PRINT)\\b"
+			"match": "\\b(STA|STX|STY|TAX|TAY|TXA|TYA|TXY|TYX|PHA|PHX|PHY|POA|POX|POY|ADD|SUB|MUL|DIV|MOD|CMP|BNE|JMP|BEQ|AND|OR|XOR|NOT|HLT|PRINT|STO|LDA)\\b"
 		  }
 		]
 	  },
